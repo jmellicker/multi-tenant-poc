@@ -3,17 +3,22 @@
     class="row layout-padding"
     :style="'background-color:' + componentData.backgroundColor"
   >
-    <q-btn>
-        home
-    </q-btn>
-    <q-btn>
-        shop
-    </q-btn>
-    {{ nav }}
+    <div
+      v-for="(item, index) in componentData.navigationRoutes"
+      class="justify-around"
+    >
+      <q-btn
+        :color="item.buttonColor"
+        @click="$router.push(item.route)"
+      >
+          {{ item.title }}
+      </q-btn>
+      </div>
   </div>
 </template>
 
 <script>
+import c from '../../js/logs'
 export default {
   data () {
     return {
@@ -27,6 +32,11 @@ export default {
     nav() {
         return this.$store.state
     },
+  },
+  methods: {
+    navigate() {
+      c.o('hey')
+    }
   }
 }
 </script>

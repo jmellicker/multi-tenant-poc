@@ -11,6 +11,29 @@ export default {
               {
                 pageSections: [
                   {
+                    component: () => import('components/common/Navigation'),
+                    componentData: {
+                      backgroundColor: '#ebcbfb;',
+                      navigationRoutes: [
+                        {
+                          title: 'home',
+                          route: '/',
+                          buttonColor: 'orange'
+                        },
+                        {
+                          title: 'shop',
+                          route: '/shop',
+                          buttonColor: 'green'
+                        },
+                        {
+                          title: 'checkout',
+                          route: '/checkout',
+                          buttonColor: 'blue'
+                        },
+                      ]
+                    }
+                  },
+                  {
                     component: () => import('components/common/Header'),
                     componentData: {
                       backgroundColor: '#edf8bc;',
@@ -18,7 +41,6 @@ export default {
                       name: 'Header'
                     }
                   },
-
                   {
                     component: () => import('components/common/NewProducts'),
                     componentData: {
@@ -27,7 +49,6 @@ export default {
                       name: 'NewProducts'
                     }
                   },
-
                   {
                     component: () => import('components/common/Footer'),
 
@@ -36,7 +57,7 @@ export default {
                       title: 'This is xyz footer page',
                       name: 'Footer'
                     }
-                  },
+                  }
                 ]
               }
             },

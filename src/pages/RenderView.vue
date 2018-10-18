@@ -3,7 +3,8 @@
     <q-page-container>
       <q-page>
           <div class="row full-width layout-padding">
-            <h4>showing components for route: <strong>{{ currentRouteLink }}</strong></h4>
+            showing components for route:
+            <div class="text-purple">{{ currentRouteLink }}</div>
           </div>
 
           <component 
@@ -50,35 +51,33 @@
         created(){
 
             // code to get company details
-            let compData = this['store/getCompanyDetails'];
+            let compData = this['store/getCompanyDetails']
             
-            let latCompanydata = [];
-            //let compData = this.$store.state.store.configArr;
+            let latCompanydata = []
+            //let compData = this.$store.state.store.configArr
             
-            let companyId = this.$route.query.e;
-            let currentRoute = this.$router.currentRoute;
+            let companyId = this.$route.query.e
+            let currentRoute = this.$router.currentRoute
 
-            let currentComp = this.ViewComponent;   
-
-            //debugger;
+            // let currentComp = this.ViewComponent
 
             let companydata = compData.filter((item,index) => {    
                                         
                 if(item[companyId]){
-                    return item[companyId];
+                    return item[companyId]
                 }            
-            });   
+            })   
             
             if(companydata[0]){
-                let mycode = companydata[0][companyId].routes;
+                let mycode = companydata[0][companyId].routes
                 
                 let latCompanydata = mycode.filter((items,index) => {    
-                    let currRouteData= items[this.currentRouteLink];
+                    let currRouteData= items[this.currentRouteLink]
                                         
                     if(currRouteData){                        
-                        this.eJSON = currRouteData; 
+                        this.eJSON = currRouteData 
                     }            
-                });                 
+                })                 
             }             
         }
     }
